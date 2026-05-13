@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIBA SMART TECH - Engineering Excellence in Manufacturing Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0c1118;
+            --color-accent: #ea4933;
+            --color-bg: #F2EDE6;
+            --color-text: #0D1117;
+            --color-surface: #1f283a;
+            --color-secondary-accent: #96b1ba;
+            --font-display: 'Russo One', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --border-radius: 0px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(12, 17, 24, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 4px 4px 0 rgba(234, 73, 51, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-accent);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-primary);
+            box-shadow: -4px 4px 0 rgba(234, 73, 51, 0.3);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/34221997/pexels-photo-34221997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            padding: 80px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(3) {
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(4) {
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(5) {
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--color-accent);
+        }
+
+        #about {
+            background: #fff;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 8px 8px 0 rgba(234, 73, 51, 0.3);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            font-weight: 400;
+        }
+
+        #services {
+            background: var(--color-surface);
+            color: #fff;
+        }
+
+        #services h2 {
+            color: var(--color-accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--color-primary);
+            padding: 2rem;
+            box-shadow: 6px 6px 0 rgba(234, 73, 51, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0 rgba(234, 73, 51, 0.4);
+        }
+
+        .service-card h3 {
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .services-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        #contact {
+            background: #fff;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            background: var(--color-surface);
+            padding: 2rem;
+            color: #fff;
+            box-shadow: 6px 6px 0 rgba(234, 73, 51, 0.3);
+        }
+
+        .contact-details h3 {
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-item strong {
+            color: var(--color-accent);
+            min-width: 80px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: var(--color-primary);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 48px 1.5rem;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CHIBA SMART TECH</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>CHIBA SMART TECH</h1>
+            <p>Your Trusted Manufacturing Partner in Bwari. We deliver precision engineering and innovative manufacturing solutions tailored to meet the dynamic needs of Nigerian businesses. Quality, reliability, and efficiency drive everything we do.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <img src="https://images.pexels.com/photos/37198885/pexels-photo-37198885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="CHIBA SMART TECH Team" class="about-image">
+            <div class="about-text">
+                <p>CHIBA SMART TECH is a forward-thinking manufacturing company based in Bwari, dedicated to delivering high-quality products and services to businesses across Nigeria. Our state-of-the-art facility combines modern manufacturing techniques with skilled craftsmanship to produce solutions that meet international standards. We pride ourselves on our commitment to innovation, quality assurance, and timely delivery. Whether you need custom fabrication, industrial components, or specialized manufacturing services, CHIBA SMART TECH has the expertise and infrastructure to bring your vision to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p class="services-intro">At CHIBA SMART TECH, we offer comprehensive manufacturing solutions designed to meet diverse industrial needs:</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Fabrication & Metalwork</h3>
+                <p>Precision cutting, welding, and assembly services for steel, aluminum, and specialty metals</p>
+            </div>
+            <div class="service-card">
+                <h3>Industrial Component Manufacturing</h3>
+                <p>Production of high-quality parts and components for machinery, equipment, and infrastructure projects</p>
+            </div>
+            <div class="service-card">
+                <h3>Product Prototyping & Development</h3>
+                <p>From concept to completion, we help bring your innovative ideas to market</p>
+            </div>
+            <div class="service-card">
+                <h3>Quality Control & Testing</h3>
+                <p>Rigorous inspection processes ensure every product meets specified standards</p>
+            </div>
+            <div class="service-card">
+                <h3>Maintenance & Repair Services</h3>
+                <p>Expert technical support to keep your equipment running efficiently</p>
+            </div>
+            <div class="service-card">
+                <h3>Industry Specialization</h3>
+                <p>We work with industries including construction, automotive, oil & gas, agriculture, and technology sectors across Nigeria</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Ready to discuss your manufacturing needs? CHIBA SMART TECH is here to provide expert consultation and reliable solutions.</p>
+                <p>Visit our facility at 41 Abia Street, Option Bar Byazhin, Across Kubwa, Bwari, Nigeria.</p>
+                <p>Call us today on 08165556266 or send us a message on WhatsApp for immediate response. Our team is ready to assist you with quotations, technical specifications, and project timelines.</p>
+                <p><strong>Let's build something exceptional together.</strong></p>
+            </div>
+            <div class="contact-details">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <strong>Phone:</strong>
+                    <a href="tel:08165556266">08165556266</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:info@chibasmart.com">info@chibasmart.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Address:</strong>
+                    <span>41 Abia Street, Option Bar Byazhin, Across Kubwa, Bwari, Nigeria</span>
+                </div>
+                <a href="https://wa.me/2348165556266" class="whatsapp-btn" target="_blank">Message on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CHIBA SMART TECH. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/2348165556266" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <span>💬</span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
