@@ -1,0 +1,42 @@
+{
+  "businessName": "CHIBA SMART TECH",
+  "industry": "Manufacturing",
+  "tone": "professional",
+  "tagline": "Engineering Excellence in Manufacturing Solutions",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "CHIBA SMART TECH - Your Trusted Manufacturing Partner in Bwari. We deliver precision engineering and innovative manufacturing solutions tailored to meet the dynamic needs of Nigerian businesses. Quality, reliability, and efficiency drive everything we do.",
+      "imagePrompt": "Modern Nigerian manufacturing facility with advanced machinery and equipment, workers in safety gear operating precision tools, well-lit industrial space with steel structures, conveyor systems, and quality control stations, professional industrial photography, sharp focus, natural lighting through large warehouse windows",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "CHIBA SMART TECH is a forward-thinking manufacturing company based in Bwari, dedicated to delivering high-quality products and services to businesses across Nigeria. Our state-of-the-art facility combines modern manufacturing techniques with skilled craftsmanship to produce solutions that meet international standards. We pride ourselves on our commitment to innovation, quality assurance, and timely delivery. Whether you need custom fabrication, industrial components, or specialized manufacturing services, CHIBA SMART TECH has the expertise and infrastructure to bring your vision to life.",
+      "imagePrompt": "Professional Nigerian manufacturing team in a clean, organized workshop, diverse group of engineers and technicians examining blueprints and quality checking products, modern equipment visible in background, bright industrial lighting, authentic workplace atmosphere, photorealistic detail",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "At CHIBA SMART TECH, we offer comprehensive manufacturing solutions designed to meet diverse industrial needs:\n\n• Custom Fabrication & Metalwork - Precision cutting, welding, and assembly services for steel, aluminum, and specialty metals\n\n• Industrial Component Manufacturing - Production of high-quality parts and components for machinery, equipment, and infrastructure projects\n\n• Product Prototyping & Development - From concept to completion, we help bring your innovative ideas to market\n\n• Quality Control & Testing - Rigorous inspection processes ensure every product meets specified standards\n\n• Maintenance & Repair Services - Expert technical support to keep your equipment running efficiently\n\nWe work with industries including construction, automotive, oil & gas, agriculture, and technology sectors across Nigeria.",
+      "imagePrompt": "Collage-style showcase of various manufacturing processes, CNC machining in action, welding sparks flying, precision measurement tools, quality inspection station, finished metal components arranged professionally, Nigerian industrial setting, high-quality industrial photography, dramatic lighting highlighting craftsmanship",
+      "layout": "cards"
+    },
+    {
+      "id": "contact",
+      "name": "Contact Us",
+      "copy": "Ready to discuss your manufacturing needs? CHIBA SMART TECH is here to provide expert consultation and reliable solutions.\n\nVisit our facility at 41 Abia Street, Option Bar Byazhin, Across Kubwa, Bwari, Nigeria.\n\nCall us today on 08165556266 or send us a message on WhatsApp for immediate response. Our team is ready to assist you with quotations, technical specifications, and project timelines.\n\nLet's build something exceptional together.",
+      "imagePrompt": "Professional Nigerian business contact scene, modern office reception area with comfortable seating, contact information displayed on digital screen, friendly staff member at desk, industrial certificates and awards on wall, bright welcoming atmosphere, corporate photography style",
+      "layout": "default"
+    }
+  ],
+  "contact": {
+    "phone": "08165556266",
+    "email": "info@chibasmart.com",
+    "address": "41 Abia Street, Option Bar Byazhin, Across Kubwa, Bwari, Nigeria",
+    "whatsapp": "https://wa.me/2348165556266"
+  }
+}
